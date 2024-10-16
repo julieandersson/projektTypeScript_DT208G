@@ -13,6 +13,16 @@ body {
     line-height: 1.8em;
 }
 
+main {
+    width: 90%;
+    background-color: base.$standard-white;
+    opacity: 70%;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 a {
     text-decoration: none;
     color: base.$standard-black;
@@ -20,4 +30,16 @@ a {
 
 h1 {
     text-align: center;
+}
+
+section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 0.9em;
+    max-width: 80ch;
+}
+
+p {
+    font-family: base.$p-font;
 }

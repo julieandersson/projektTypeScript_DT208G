@@ -2,28 +2,47 @@
 
 nav ul {
     list-style: none;
-    background-color: base.$nav-color;
-    padding: 15px;
-    margin-bottom: 0px;
+    padding: 10px;
+    margin: 20px 0;
     display: flex;
     justify-content: center;
 }
 
 nav ul li {
     margin-right: 50px;
+
+    /* Olika bakgrundsfärger för varje list-element */
+    &:nth-child(1) {
+        background-color: #B2DAA4;
+    }
+
+    &:nth-child(2) {
+        background-color: #F4989B;
+    }
+
+    &:nth-child(3) {
+        background-color: #ADD4EB;
+    }
+
+    padding: 8px 15px;
+    border-radius: 3px;
 }
 
 nav ul li:last-child {
     margin-right: 0;
+    background-color: #f0aa8b;
 }
 
 nav ul li a {
-    font-size: 1.4em;
+    font-size: 1.2em;
     transition: transform 0.3s ease, color 0.3s ease; 
     display: inline-block;
 }
 
 nav ul li a:hover {
-    color: #555;
     transform: scale(1.1);
+}
+
+.active {
+    text-decoration: underline;
 }

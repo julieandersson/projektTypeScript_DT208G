@@ -2,4 +2,44 @@
 
 footer {
     background-color: base.$base-color;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    color: base.$standard-black;
+
+    .footer-column {
+        flex: 1;
+        margin: 0 15px;
+        text-align: center;
+
+        h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: base.$standard-black;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: base.$standard-black;
+        }
+    }
 }
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.opening, .adress {
+    font-size: 0.7em;
+    color: rgb(72, 72, 72);
+}
+
