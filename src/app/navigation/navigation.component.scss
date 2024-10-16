@@ -1,1 +1,29 @@
 @use '../../styles/base';
+
+nav ul {
+    list-style: none;
+    background-color: base.$nav-color;
+    padding: 15px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin-right: 50px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    font-size: 1.4em;
+    transition: transform 0.3s ease, color 0.3s ease; 
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    color: #555;
+    transform: scale(1.1);
+}

@@ -2,5 +2,24 @@
 
 header {
     background-color: base.$base-color;
-    height: 90px;
+    height: 140px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header a {
+    font-size: 2em;
+    color: white;
+}
+
+header a:hover {
+    text-decoration: none;
+}
+
+#logo img {
+    width: 190px;
+    height: auto;
+    display: block;
 }

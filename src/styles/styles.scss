@@ -13,6 +13,11 @@ body {
     line-height: 1.8em;
 }
 
-footer {
-    background-color: base.$base-color;
+a {
+    text-decoration: none;
+    color: base.$standard-black;
+}
+
+h1 {
+    text-align: center;
 }
