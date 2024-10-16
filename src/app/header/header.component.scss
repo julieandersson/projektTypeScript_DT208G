@@ -1,0 +1,6 @@
+@use '../../styles/base';
+
+header {
+    background-color: base.$base-color;
+    height: 90px;
+}
