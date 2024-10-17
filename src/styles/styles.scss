@@ -15,10 +15,11 @@ body {
 
 main {
     width: 90%;
+    max-width: 900px;
     background-color: base.$standard-white;
-    opacity: 70%;
+    opacity: 80%;
     padding: 20px;
-    margin: 10px auto;
+    margin: 40px auto;
     border-radius: 5px;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -30,6 +31,13 @@ a {
 
 h1 {
     text-align: center;
+    padding-top: 20px;
+}
+
+
+h2 {
+    text-align: center;
+    padding: 30px;
 }
 
 section {

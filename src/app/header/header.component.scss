@@ -2,24 +2,44 @@
 
 header {
     background-color: base.$base-color;
-    height: 140px;
-    text-align: center;
+    padding: 10px 0;
+    height: 150px;
+}
+
+nav ul {
+    list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
-header a {
-    font-size: 2em;
-    color: white;
+nav ul li {
+    margin: 0 25px;
 }
 
-header a:hover {
+nav ul li a {
     text-decoration: none;
+    color: base.$standard-white;
+    font-size: 1em;
+}
+
+#logo {
+    margin: 0 50px;
 }
 
 #logo img {
-    width: 190px;
-    height: auto;
-    display: block;
+    height: 150px;
+    width: auto;
+    vertical-align: middle;
 }
+
+nav ul li a:hover {
+    color: #1f3b57;
+}
+
+nav ul li a.active {
+    color: #1f3b57;
+}
+

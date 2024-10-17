@@ -3,34 +3,20 @@
 nav ul {
     list-style: none;
     padding: 10px;
-    margin: 20px 0;
+    margin: 30px 0;
     display: flex;
     justify-content: center;
 }
 
 nav ul li {
     margin-right: 50px;
-
-    /* Olika bakgrundsfärger för varje list-element */
-    &:nth-child(1) {
-        background-color: #B2DAA4;
-    }
-
-    &:nth-child(2) {
-        background-color: #F4989B;
-    }
-
-    &:nth-child(3) {
-        background-color: #ADD4EB;
-    }
-
+    background-color: #ffef9b;
     padding: 8px 15px;
     border-radius: 3px;
 }
 
 nav ul li:last-child {
     margin-right: 0;
-    background-color: #f0aa8b;
 }
 
 nav ul li a {

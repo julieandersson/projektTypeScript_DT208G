@@ -1,7 +1,17 @@
 <!--Header med navmeny, infogas och visas på alla sidor-->
 <header>
-    <div id="logo"><a routerLink="/home" routerLinkActive="active">
-        <img src="assets/images/unilogo.png" alt="Stjärnklara Universitetet Logo" />
-    </a>
-</div>
+    <nav>
+        <ul>
+            <li><a routerLink="/library" routerLinkActive="active">BIBLIOTEK</a></li>
+            <li><a routerLink="/studentunion" routerLinkActive="active">STUDENTKÅR</a></li>
+            
+            <div id="logo">
+                <a routerLink="/home" routerLinkActive="active">
+                    <img src="assets/images/unilogo.png" alt="Stjärnklara Universitetet Logo" />
+                </a>
+            </div>
+            <li><a routerLink="/campus" routerLinkActive="active">CAMPUS</a></li>
+            <li><a routerLink="/scholarship" routerLinkActive="active">STIPENDIUM</a></li>
+        </ul>
+    </nav>
 </header>
