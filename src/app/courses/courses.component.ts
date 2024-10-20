@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { Courses } from '../model/courses';
 import { CoursesService } from '../services/courses.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination'; // Importerar ngxpaginationmodule för paginering
 
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule, NgxPaginationModule],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.scss'
 })
@@ -20,15 +23,73 @@ export class CoursesComponent {
   subjects: string[] = [];
   // valt ämne från användaren, tar en tom sträng
   selectedSubject: string = "";
+  // Sorteringsordning
+  isAscending: boolean = true;
 
   // konstruktor för import av kurser
   constructor(private coursesservice: CoursesService) {}
 
   // kör ngOnInit när applikationen startar
   ngOnInit() {
-    this.coursesservice.getCourses().subscribe(data => {
-      this.courseslist = data;
-      this.filteredCourses = data;
-    })
+    this.coursesservice.getCourses().subscribe((courses) => {
+      // sparar kurserna och filtrera dem
+      this.courseslist = courses;
+      this.filteredCourses = courses;
+      // hämtar unika ämnen
+      this.subjects = [...new Set(courses.map(courses => courses.subject))];
+    });
+  }
+
+  // Filtreringsmetod för att uppdatera kurslistan baserat på söktext och ämne
+  filterCourses(): void {
+    this.filteredCourses = this.courseslist.filter(course => {
+      // Kontroll om kursnamn eller kurskod matchar söktexten
+      const matchesSearchText = course.courseName.toLowerCase().includes(this.searchText.toLowerCase()) ||
+                                course.courseCode.toLowerCase().includes(this.searchText.toLowerCase());
+      // Kontroll om kursens ämne matchar det valda ämnet (eller om inget ämne är valt)                         
+      const matchesSubject = this.selectedSubject ? course.subject === this.selectedSubject : true;
+      // Returnerar true om både sökfält och ämne matchar (eller om inga filter är satta)
+      return matchesSearchText && matchesSubject;
+    });
+  }
+
+  // Sorteringsmetod för kurskod
+  sortCoursesByCode(): void {
+    this.filteredCourses.sort((a, b) => {
+      // Sorterar i stigande eller fallande ordning 
+      return this.isAscending ? a.courseCode.localeCompare(b.courseCode) : b.courseCode.localeCompare(a.courseCode);
+    });
+    // Växlar sorteringsordningen för nästa gång användaren klickar
+    this.isAscending = !this.isAscending;
+  }
+
+  // Sorteringsmetod för kursnamn
+  sortCoursesByName(): void {
+    this.filteredCourses.sort((a, b) => {
+      // Sorterar i stigande eller fallande ordning 
+      return this.isAscending ? a.courseName.localeCompare(b.courseName) : b.courseName.localeCompare(a.courseName);
+    });
+    // Växlar sorteringsordningen för nästa gång användaren klickar
+    this.isAscending = !this.isAscending;
+  }
+
+  // Sorteringsmetod för poäng
+  sortCoursesByPoints(): void {
+    this.filteredCourses.sort((a, b) => {
+      // Sorterar kursens poäng (nummer) i stigande eller fallande ordning 
+      return this.isAscending ? a.points - b.points : b.points - a.points;
+    });
+    // Växlar sorteringsordningen för nästa gång användaren klickar
+    this.isAscending = !this.isAscending;
+  }
+
+  // Sorteringsmetod för ämne
+  sortCoursesBySubject(): void {
+    this.filteredCourses.sort((a, b) => {
+      // Sorterar i stigande eller fallande ordning 
+      return this.isAscending ? a.subject.localeCompare(b.subject) : b.subject.localeCompare(a.subject);
+    });
+    // Växlar sorteringsordningen för nästa gång användaren klickar
+    this.isAscending = !this.isAscending;
   }
 }

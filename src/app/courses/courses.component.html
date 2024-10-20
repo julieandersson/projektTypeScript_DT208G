@@ -7,3 +7,49 @@
     Skapa din egen väg till framgång hos oss!
 </p>
 </section>
+
+<!-- Sektion för sökning och filtrering av kurser-->
+<section>
+  <!-- Inputfält för sökning på antingen kursnamn eller kurskod -->
+  <input type="text" placeholder="Sök kursnamn eller kurskod" [(ngModel)]="searchText" (input)="filterCourses()" />
+  
+  <!-- Dropdown för att välja ämne -->
+  <select [(ngModel)]="selectedSubject" (change)="filterCourses()">
+    <option value="">Välj ämne</option>
+    <!-- Loopar igenom alla ämnen och skapar en option för varje -->
+    <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
+  </select>
+  
+  <!-- Text över kurslistan som visar antal kurser -->
+  <p *ngIf="filteredCourses.length > 0">
+    Visar {{ filteredCourses.length }} kurser
+</p>
+</section>
+
+<!-- Tabell för att visa kurserna -->
+<section>
+    <table>
+      <thead>
+        <tr>
+          <!-- Eventbindning, sortering när användaren klickar på rubriken -->
+          <th class="sortable" (click)="sortCoursesByCode()">Kurskod</th>
+          <th class="sortable" (click)="sortCoursesByName()">Kursnamn</th>
+          <th class="sortable" (click)="sortCoursesByPoints()">Poäng</th>
+          <th class="sortable" (click)="sortCoursesBySubject()">Ämne</th>
+          <th>Kursplan</th> <!-- Länk till kursplan, ej sorteringsbar -->
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- Loopa igenom kurslista och visa kurserna -->
+        <tr *ngFor="let course of filteredCourses">
+         <td>{{ course.courseCode }}</td>
+         <td>{{ course.courseName }}</td>
+         <td>{{ course.points }}</td>
+         <td>{{ course.subject }}</td>
+         <td><a [href]="course.syllabus" target="_blank">Kursplan</a></td>
+        </tr>
+     </tbody>
+    </table>
+ </section>
+
