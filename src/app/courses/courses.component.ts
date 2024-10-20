@@ -58,9 +58,14 @@ export class CoursesComponent {
 
   // lägger till en kurs i ramschemat via SchemeService
   addToScheme(course: Courses): void {
-    this.schemeService.addCourse(course); // Lägger till kursen i ramschemat
+    if (this.schemeService.isCourseAdded(course.courseCode)) {
+      // Visar meddelande om kursen redan finns i ramschemat
+      alert('Denna kurs är redan tillagd i ditt ramschema.');
+    } else {
+    this.schemeService.addCourse(course); // Lägger till kursen i ramschemat om den inte redan finns
     this.addedCourses.set(course.courseCode, true); // Markerar kursen som tillagd
   }
+}
 
   // Sorteringsmetod för kurskod
   sortCoursesByCode(): void {

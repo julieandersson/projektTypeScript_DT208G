@@ -15,12 +15,25 @@ export class SchemeService {
     return JSON.parse(localStorage.getItem(this.schemeKey) || '[]');
   }
 
+  // Kontroll om kursen redan är tillagd i ramschemat
+  isCourseAdded(courseCode: string): boolean {
+    const courses = this.getSelectedCourses();
+    return courses.some(course => course.courseCode === courseCode);
+  }
+
   // Lägger till en kurs i ramschemat och sparar i LocalStorage
   addCourse(course: Courses): void {
     const courses = this.getSelectedCourses();
-    courses.push(course); // Lägger till kursen
-    localStorage.setItem(this.schemeKey, JSON.stringify(courses)); // Sparar ramschemat
+
+    // Kontrollerar om kursen redan finns i ramschemat
+    if (!this.isCourseAdded(course.courseCode)) {
+      courses.push(course); // Lägger till kursen
+      localStorage.setItem(this.schemeKey, JSON.stringify(courses)); // Sparar ramschemat
+    } else {
+      console.error('Kursen är redan tillagd i ramschemat.');
+    }
   }
+
   // Tar bort en kurs från ramschemat och uppd LocalStorage
   removeCourse(courseCode: string): void {
     let courses = this.getSelectedCourses();
