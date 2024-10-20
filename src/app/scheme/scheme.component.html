@@ -1,12 +1,16 @@
 <h1>Ditt ramschema</h1>
+<section>
+  <p>Här hittar du alla de kurser du har lagt till i ditt ramschema.</p>
+</section>
 
 <!-- Meddelande om inga kurser är tillagda -->
-<p *ngIf="schemeCourses.length === 0">Du har inte lagt till några kurser i ditt ramschema.</p>
+<p class="no-courses-message" *ngIf="schemeCourses.length === 0">Du har inte lagt till några kurser i ditt ramschema.</p>
 
 <!-- Visar totalt antal poäng -->
-<p *ngIf="schemeCourses.length > 0">Totala poäng: {{ totalPoints }} hp</p>
+<p class="scheme-info-text" *ngIf="schemeCourses.length > 0">Totala poäng: {{ totalPoints }} hp</p>
 
 <!-- Tabell för att visa tillagda kurser i ramschemat -->
+<div id="scheme-table-container">
 <table *ngIf="schemeCourses.length > 0">
   <thead>
     <tr>
@@ -30,4 +34,5 @@
     </tr>
   </tbody>
 </table>
+</div>
 

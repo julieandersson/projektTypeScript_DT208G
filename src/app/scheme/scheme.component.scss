@@ -1,0 +1,74 @@
+@use '../../styles/base';
+
+section {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Styling för texten ovanför ramschemat */
+.scheme-info-text {
+  font-size: 0.8em;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Styling för felmeddelande om inga kurser är tillagda */
+.no-courses-message {
+  color: base.$error;
+  font-style: italic;
+  font-size: 0.8em;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Styling för tabellen */
+#scheme-table-container {
+    margin-top: 20px;
+    background-color: base.$standard-white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Styling för rubriker */
+thead th {
+    background-color: base.$base-color;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Styling för tabellens celler */
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; 
+    font-size: 0.8em;
+}
+
+/* kursplan-länk */
+a {
+    color: #607e87;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Styling för ta bort-knappen */
+button {
+    padding: 8px 12px;
+    background-color: base.$error;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c9302c;
+}
