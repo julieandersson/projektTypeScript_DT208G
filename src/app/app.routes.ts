@@ -8,6 +8,7 @@ import { LibraryComponent } from './library/library.component';
 import { StudentunionComponent } from './studentunion/studentunion.component';
 import { CampusComponent } from './campus/campus.component';
 import { ScholarshipComponent } from './scholarship/scholarship.component';
+import { ApplyComponent } from './apply/apply.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -19,6 +20,7 @@ export const routes: Routes = [
     { path: 'studentunion', component: StudentunionComponent },
     { path: 'campus', component: CampusComponent },
     { path: 'scholarship', component: ScholarshipComponent },
+    { path: 'apply', component: ApplyComponent },
     { path: '404', component: NotFoundComponent },
     { path: '**', component: NotFoundComponent }
 ];
