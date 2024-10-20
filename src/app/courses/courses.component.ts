@@ -4,6 +4,7 @@ import { CoursesService } from '../services/courses.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination'; // Importerar ngxpaginationmodule för paginering
+import { SchemeService } from '../services/scheme.service';
 
 @Component({
   selector: 'app-courses',
@@ -25,9 +26,11 @@ export class CoursesComponent {
   selectedSubject: string = "";
   // Sorteringsordning
   isAscending: boolean = true;
+  // Lagrar kurser som redan har lagts till i ramschemat
+  addedCourses: Map<string, boolean> = new Map<string, boolean>();
 
   // konstruktor för import av kurser
-  constructor(private coursesservice: CoursesService) {}
+  constructor(private coursesservice: CoursesService, private schemeService: SchemeService)  {}
 
   // kör ngOnInit när applikationen startar
   ngOnInit() {
@@ -51,6 +54,12 @@ export class CoursesComponent {
       // Returnerar true om både sökfält och ämne matchar (eller om inga filter är satta)
       return matchesSearchText && matchesSubject;
     });
+  }
+
+  // lägger till en kurs i ramschemat via SchemeService
+  addToScheme(course: Courses): void {
+    this.schemeService.addCourse(course); // Lägger till kursen i ramschemat
+    this.addedCourses.set(course.courseCode, true); // Markerar kursen som tillagd
   }
 
   // Sorteringsmetod för kurskod

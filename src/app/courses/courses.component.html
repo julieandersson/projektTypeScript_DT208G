@@ -8,8 +8,6 @@
 </p>
 </section>
 
-<!-- Sektion för sökning och filtrering av kurser-->
-<section>
   <!-- Inputfält för sökning på antingen kursnamn eller kurskod -->
   <input type="text" placeholder="Sök kursnamn eller kurskod" [(ngModel)]="searchText" (input)="filterCourses()" />
   
@@ -24,10 +22,8 @@
   <p *ngIf="filteredCourses.length > 0">
     Visar {{ filteredCourses.length }} kurser
 </p>
-</section>
 
 <!-- Tabell för att visa kurserna -->
-<section>
     <table>
       <thead>
         <tr>
@@ -37,6 +33,7 @@
           <th class="sortable" (click)="sortCoursesByPoints()">Poäng</th>
           <th class="sortable" (click)="sortCoursesBySubject()">Ämne</th>
           <th>Kursplan</th> <!-- Länk till kursplan, ej sorteringsbar -->
+          <th>Lägg till</th> <!-- För att lägga till kurs till ramschema, ej sorteringsbar -->
         </tr>
       </thead>
       <tbody>
@@ -48,8 +45,14 @@
          <td>{{ course.points }}</td>
          <td>{{ course.subject }}</td>
          <td><a [href]="course.syllabus" target="_blank">Kursplan</a></td>
+         <td>
+          <!-- Knapp för att lägga till kurs till ramschema -->
+          <button *ngIf="!addedCourses.get(course.courseCode)" (click)="addToScheme(course)">
+            Lägg till
+          </button>
+          <span *ngIf="addedCourses.get(course.courseCode)">Tillagd</span>
+        </td>
         </tr>
      </tbody>
     </table>
- </section>
 

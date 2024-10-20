@@ -1,1 +1,33 @@
-<h1>Ramschema</h1>
+<h1>Ditt ramschema</h1>
+
+<!-- Meddelande om inga kurser är tillagda -->
+<p *ngIf="schemeCourses.length === 0">Du har inte lagt till några kurser i ditt ramschema.</p>
+
+<!-- Visar totalt antal poäng -->
+<p *ngIf="schemeCourses.length > 0">Totala poäng: {{ totalPoints }} hp</p>
+
+<!-- Tabell för att visa tillagda kurser i ramschemat -->
+<table *ngIf="schemeCourses.length > 0">
+  <thead>
+    <tr>
+      <th>Kurskod</th>
+      <th>Kursnamn</th>
+      <th>Poäng</th>
+      <th>Kursplan</th>
+      <th>Ta bort</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of schemeCourses">
+      <td>{{ course.courseCode }}</td>
+      <td>{{ course.courseName }}</td>
+      <td>{{ course.points }} hp</td>
+      <td><a [href]="course.syllabus" target="_blank">Kursplan</a></td>
+      <td>
+        <!-- Knapp för att ta bort kurs från ramschemat -->
+        <button (click)="removeCourse(course.courseCode)">Ta bort</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
