@@ -20,8 +20,13 @@
   </select>
   
   <!-- Text över kurslistan som visar antal kurser -->
-  <p *ngIf="filteredCourses.length > 0">
-    Visar {{ filteredCourses.length }} kurser
+  <p class="course-info-text" *ngIf="filteredCourses.length > 0">
+    Visar {{ filteredCourses.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).length }} av totalt {{ filteredCourses.length }} kurser
+</p>
+
+<!-- Felmeddelande om inga kurser hittas -->
+<p *ngIf="filteredCourses.length === 0" class="error-message">
+  Inga kurser hittades för din sökning.
 </p>
 
 <!-- Tabell för att visa kurserna -->
@@ -41,7 +46,7 @@
       <tbody>
 
         <!-- Loopa igenom kurslista och visa kurserna -->
-        <tr *ngFor="let course of filteredCourses">
+        <tr *ngFor="let course of filteredCourses | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
          <td>{{ course.courseCode }}</td>
          <td>{{ course.courseName }}</td>
          <td>{{ course.points }}</td>
@@ -58,4 +63,13 @@
      </tbody>
     </table>
   </div>
+
+  <!-- Paginering -->
+  <section class="pagination-controls"> 
+  <pagination-controls 
+    (pageChange)="onPageChange($event)" 
+    previousLabel="Föregående"
+    nextLabel="Nästa">
+  </pagination-controls>
+  </section>
 </div>

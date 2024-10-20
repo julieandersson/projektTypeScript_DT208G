@@ -29,6 +29,11 @@ export class CoursesComponent {
   // Lagrar kurser som redan har lagts till i ramschemat
   addedCourses: Map<string, boolean> = new Map<string, boolean>();
 
+  // Variabler för paginering
+  currentPage: number = 1; // Nuvarande sida
+  itemsPerPage: number = 30; // Antal kurser per sida
+  totalItems: number = 0; // Totalt antal kurser
+
   // konstruktor för import av kurser
   constructor(private coursesservice: CoursesService, private schemeService: SchemeService)  {}
 
@@ -38,6 +43,7 @@ export class CoursesComponent {
       // sparar kurserna och filtrera dem
       this.courseslist = courses;
       this.filteredCourses = courses;
+      this.totalItems = this.filteredCourses.length; // Uppdaterar totalt antal kurser
       // hämtar unika ämnen
       this.subjects = [...new Set(courses.map(courses => courses.subject))];
     });
@@ -54,7 +60,14 @@ export class CoursesComponent {
       // Returnerar true om både sökfält och ämne matchar (eller om inga filter är satta)
       return matchesSearchText && matchesSubject;
     });
+    this.totalItems = this.filteredCourses.length; // Uppdaterar totalt antal kurser efter filtrering
+    this.currentPage = 1; // Återställer till första sidan efter filtrering
   }
+
+    // Sidbyte
+    onPageChange(page: number): void {
+      this.currentPage = page; // Uppdaterar aktuell sida när användaren bläddrar
+    }
 
   // lägger till en kurs i ramschemat via SchemeService
   addToScheme(course: Courses): void {
