@@ -13,4 +13,6 @@ import { FooterComponent } from './footer/footer.component';
 })
 export class AppComponent {
   title = 'projektTypeScript_DT208G';
+
+  backgroundImage: string = "assets/images/universitet.jpg";
 }

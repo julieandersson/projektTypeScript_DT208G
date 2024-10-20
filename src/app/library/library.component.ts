@@ -9,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class LibraryComponent {
 
+  libraryImage: string = "assets/images/universitet4.jpg";
 }

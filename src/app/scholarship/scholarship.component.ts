@@ -9,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class ScholarshipComponent {
 
+  scholarshipImage: string = "assets/images/scholarship.jpg";
 }
