@@ -8,9 +8,10 @@
 </p>
 </section>
 
+<div id="course-container">
   <!-- Inputfält för sökning på antingen kursnamn eller kurskod -->
+  <label for="search">Sök:</label>
   <input type="text" placeholder="Sök kursnamn eller kurskod" [(ngModel)]="searchText" (input)="filterCourses()" />
-  
   <!-- Dropdown för att välja ämne -->
   <select [(ngModel)]="selectedSubject" (change)="filterCourses()">
     <option value="">Välj ämne</option>
@@ -24,6 +25,7 @@
 </p>
 
 <!-- Tabell för att visa kurserna -->
+ <div id="table-container">
     <table>
       <thead>
         <tr>
@@ -55,4 +57,5 @@
         </tr>
      </tbody>
     </table>
-
+  </div>
+</div>
