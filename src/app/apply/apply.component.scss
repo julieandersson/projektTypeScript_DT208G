@@ -1,5 +1,10 @@
 @use '../../styles/base';
 
+section {
+    width: 80%;
+    margin: 0 auto;
+}
+
 #apply {
     padding: 15px 15px;
     background-color: #6a8c97;
@@ -40,3 +45,4 @@ ul li:last-child {
 a:hover {
     text-decoration: underline;
 }
+
