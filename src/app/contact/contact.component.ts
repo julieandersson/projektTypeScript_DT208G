@@ -9,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
 
+  campusBackground: string = "assets/images/campusbackground.jpg";
 }
