@@ -9,6 +9,7 @@
 </section>
 
   <!-- Inputfält för sökning på antingen kursnamn eller kurskod -->
+<div class="searchcontainer">
   <label for="search">Sök:</label>
   <input type="text" placeholder="Sök kursnamn eller kurskod" [(ngModel)]="searchText" (input)="filterCourses()" />
   <!-- Dropdown för att välja ämne -->
@@ -17,6 +18,7 @@
     <!-- Loopar igenom alla ämnen och skapar en option för varje -->
     <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
   </select>
+</div>
   
   <!-- Text över kurslistan som visar antal kurser -->
   <p class="course-info-text" *ngIf="filteredCourses.length > 0">

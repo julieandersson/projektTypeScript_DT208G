@@ -26,7 +26,12 @@ section {
   justify-content: center;
   margin: 30px 0;
 }
-  
+
+
+.searchcontainer {
+  width: 70%;
+  margin: 0 auto;
+
 /* Styling för etiketter */
 label {
   display: block;
@@ -43,20 +48,24 @@ input[type="text"], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-bottom: 15px;
     background-color: #f9f9f9;
     transition: border-color 0.3s ease;
+    margin-bottom: 15px;
   }
   
   input[type="text"]:focus, select:focus {
     border-color: base.$add-btn;
     outline: none;
   }
+}
 
   /* Styling för tabellen */
   #table-container {
     margin-top: 20px;
     background-color: base.$standard-white;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   
   table {

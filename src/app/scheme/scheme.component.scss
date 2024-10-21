@@ -28,6 +28,9 @@ section {
 #scheme-table-container {
     margin-top: 20px;
     background-color: base.$standard-white;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 40px auto;
 }
 
 table {

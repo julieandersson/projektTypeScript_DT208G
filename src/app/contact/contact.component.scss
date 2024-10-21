@@ -26,19 +26,16 @@ a:hover {
 /* Styling för bild med text ovanpå för "hitta till oss" */
 .background-image {
     position: relative;
-    height: 400px;
     width: 100%;
-    background-size: cover;
-    background-position: center;
+    height: 600px;
   }
   
   .background-image img {
-    width: 100%;
+    width: 90%;
     height: 100%;
+    display: block;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
+    margin: 0 auto;
   }
   
   .text-overlay {
@@ -48,8 +45,7 @@ a:hover {
     transform: translate(-50%, -50%);
     text-align: center;
     background-color: rgba(base.$standard-white, 0.9);
-    border-radius: 100%;
-    padding: 50px;
-    z-index: 1;
+    padding: 20px;
+    border-radius: 8px;
   }
   
