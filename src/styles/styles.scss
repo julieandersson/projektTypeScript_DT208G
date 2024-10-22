@@ -31,12 +31,14 @@ a {
 h1 {
     text-align: center;
     padding-top: 20px;
+    font-size: 2.1em;
 }
 
 
 h2 {
     text-align: center;
     padding: 30px;
+    font-size: 1.6em;
 }
 
 section {
@@ -49,4 +51,62 @@ section {
 
 p {
     font-family: base.$p-font;
+}
+
+/* MEDIA QUERIES */
+
+/* Tablet */
+
+@media (min-width: 600px) and (max-width: 900px) {
+    main {
+        padding: 15px;
+        margin: 30px auto;
+    }
+
+    h1, h2 {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.9em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    section {
+        padding: 5px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 599px) {
+    body {
+        font-size: 1.1em;
+    }
+
+    main {
+        width: 95%;
+        padding: 10px;
+        margin: 20px auto;
+    }
+
+    h1, h2 {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    section {
+        width: 100%;
+        padding: 5px;
+    }
 }

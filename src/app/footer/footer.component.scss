@@ -15,7 +15,7 @@ footer {
         padding-top: 15px;
 
         h4 {
-            font-size: 1.1em;
+            font-size: 1.2em;
             margin-bottom: 10px;
             color: base.$standard-black;
         }
@@ -45,3 +45,50 @@ footer a:hover {
     color: rgb(72, 72, 72);
 }
 
+/* MEDIA QUERIES */
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 900px) {
+    footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .footer-column {
+        flex: 1;
+        padding-top: 10px;
+        margin: 0 10px;
+    }
+
+
+    h4 {
+        font-size: 1em;
+    }
+}
+
+/* Mobile */
+@media (max-width: 599px) {
+    footer {
+        display: flex;
+        flex-direction: column; /* Ängrar till vertikal layout */
+        align-items: center;
+        padding: 10px;
+    }
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .footer-column ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    h4 {
+        font-size: 1em;
+    }
+}
