@@ -20,6 +20,7 @@ Användaren kan...
 - Läsa ut en lista med alla tillgängliga kurser
 - Söka på kurskod eller kursnamn
 - Filtrera kurser baserat på valt ämne
+- Rensa filter genom att klicka på knappen "rensa alla filter" så töms söktexten och valt ämne återställs. 
 - Sortera kurskod, kursnamn, poäng och ämne genom att klicka på rubriken i tabellen. 
 - Skapa ett eget ramschema genom att klicka på "Lägg till" i listan med kurser. (alla tillagda kurser lagras i LocalStorage)
 - Ta bort kurser från sitt ramschema genom att klicka på knappen "Ta bort" i tabellen.
