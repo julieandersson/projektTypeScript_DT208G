@@ -13,10 +13,12 @@ nav ul {
     align-items: center;
     padding: 0;
     margin: 0;
+    flex-wrap: nowrap;
 }
 
 nav ul li {
     margin: 0 25px;
+    flex-shrink: 1;
 }
 
 nav ul li a {
@@ -41,5 +43,60 @@ nav ul li a:hover {
 
 nav ul li a.active {
     color: #1f3b57;
+}
+
+/* MEDIA QUERIES */
+
+/* Tablet */
+@media (min-width: 660px) and (max-width: 900px) {
+    header {
+        height: auto;
+        padding: 10px;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    nav ul li {
+        margin: 0 8px; 
+        flex-shrink: 1; 
+    }
+
+    #logo img {
+        height: 100px;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile */
+@media (max-width: 659px) {
+    header {
+        height: auto;
+        padding: 5px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Ändrar till vertikal layout */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 0.9em;
+    }
+
+    #logo {
+        margin: 20px 0;
+    }
+
+    #logo img {
+        height: 80px;
+    }
 }
 
