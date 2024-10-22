@@ -34,6 +34,9 @@ export class CoursesComponent {
   itemsPerPage: number = 20; // Antal kurser per sida
   totalItems: number = 0; // Totalt antal kurser
 
+  // Variabel för felmeddelande vid rensa filter-knapp
+  errorMessage: string = '';
+
   // konstruktor för import av kurser
   constructor(private coursesservice: CoursesService, private schemeService: SchemeService)  {}
 
@@ -80,6 +83,20 @@ export class CoursesComponent {
   }
 }
 
+  // Rensar alla filter eller visar felmeddelande om inga filter är valda
+  clearFilters(): void {
+    if (!this.searchText && !this.selectedSubject) {
+      // Om inga filter är valda, visa felmeddelande till användaren
+      this.errorMessage = 'Inga filter är aktiva att rensa.';
+    } else {
+      // Om filter är valda, återställ filtren
+      this.searchText = ''; // Tömmer söktexten
+      this.selectedSubject = '';  // Återställer valt ämne
+      this.filterCourses(); // Anropar filterCourses för att visa hela listan igen
+      this.errorMessage = ''; // Rensa felmeddelandet efter rensning
+    }
+  }
+
   // Sorteringsmetod för kurskod
   sortCoursesByCode(): void {
     this.filteredCourses.sort((a, b) => {
@@ -119,4 +136,5 @@ export class CoursesComponent {
     // Växlar sorteringsordningen för nästa gång användaren klickar
     this.isAscending = !this.isAscending;
   }
+  
 }

@@ -19,6 +19,11 @@
     <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
   </select>
 </div>
+
+<!-- Felmeddelande om det inte finns några filter att rensa -->
+<p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+<!-- Knapp för att rensa alla filter -->
+<button class="clear-filters-btn" (click)="clearFilters()">Rensa alla filter</button>
   
   <!-- Text över kurslistan som visar antal kurser -->
   <p class="course-info-text" *ngIf="filteredCourses.length > 0">

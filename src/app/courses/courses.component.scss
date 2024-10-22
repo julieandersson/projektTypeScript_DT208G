@@ -8,12 +8,15 @@ section {
 .course-info-text {
   font-size: 0.8em;
   margin-bottom: 15px;
+  margin-top: 15px;
   text-align: center;
 }
 
 /* Styling för felmeddelande */
 .error-message {
-  color: base.$error;;
+  color: base.$error;
+  margin-bottom: 15px;
+  margin-top: 15px;
   font-style: italic;
   font-size: 0.8em;
   text-align: center;
@@ -135,6 +138,23 @@ input[type="text"], select {
   /* Gömmer scroll-meddelande som standard */
   .scroll-info {
   display: none;
+  }
+
+  /* knapp för rensa-filter */
+  .clear-filters-btn {
+    background-color: base.$add-btn;
+    border: none;
+    width: 150px;
+    padding: 15px 20px;
+    font-size: 0.8em;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  
+    &:hover {
+      background-color: #005f99;
+    }
   }
 
   /* MEDIA QUERIES */
