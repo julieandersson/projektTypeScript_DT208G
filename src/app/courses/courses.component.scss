@@ -1,7 +1,7 @@
 @use '../../styles/base';
 
 section {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* Styling för texten ovanför kurslistan */
@@ -34,6 +34,10 @@ section {
 .searchcontainer {
   width: 70%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* Styling för etiketter */
 label {
@@ -45,208 +49,190 @@ label {
 
 /* Gemensam styling för både sökrutan och dropdown-menyn */
 input[type="text"], select {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s ease;
-    margin-bottom: 15px;
-  }
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+  margin-bottom: 15px;
+}
   
-  input[type="text"]:focus, select:focus {
-    border-color: base.$add-btn;
-    outline: none;
-  }
+input[type="text"]:focus, select:focus {
+  border-color: base.$add-btn;
+  outline: none;
 }
 
-  /* Styling för tabellen */
-  #table-container {
-    margin-top: 20px;
-    background-color: base.$standard-white;
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
-    border: 1px solid #5c5c5c;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-  }
-  
-  thead th {
-    background-color: base.$base-color;
-    padding: 8px;
-    text-align: left;
-    white-space: nowrap;
-  }
-  thead th:nth-child(4), 
-  tbody td:nth-child(4) {
-    word-break: break-word;
-    width: 20%;
-  }
-  
-    /* pointer på sorteringsbara rubriker */
-  th.sortable {
-    cursor: pointer;
-  }
+/* Styling för tabellen */
+#table-container {
+  margin-top: 20px;
+  background-color: base.$standard-white;
+  width: 95%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid #5c5c5c;
+}
 
-  th.sortable:hover {
-    background-color: #607e87;
-  }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+thead th {
+  background-color: base.$base-color;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+thead th:nth-child(2), 
+tbody td:nth-child(2) {
+  width: 25%;
+}
+
+thead th:nth-child(4), 
+tbody td:nth-child(4) {
+  word-break: break-word;
+  width: 20%;
+}
+
+thead th:last-child,
+tbody td:last-child {
+  width: 15%; 
+  text-align: center; 
+  padding-right: 0; 
+}
+
+/* pointer på sorteringsbara rubriker */
+th.sortable {
+  cursor: pointer;
+}
+
+th.sortable:hover {
+  background-color: #607e87;
+}
+
+tbody td {
+  padding: 5px 10px;
+  border-bottom: 1px solid #ddd; 
+  font-size: 0.8em;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+/* Länk-styling */
+a {
+  color: #607e87;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Knapp-styling för "Lägg till"-knappen */
+button {
+  padding: 8px 12px;
+  width: 80px;
+  background-color: base.$add-btn;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+button:hover {
+  background-color: #005f99;
+}
+
+span {
+  color: green;
+  font-weight: bold;
+}
+
+/* Gömmer scroll-meddelande som standard */
+.scroll-info {
+  display: none;
+}
+
+/* knapp för rensa-filter */
+.clear-filters-btn {
+  background-color: base.$add-btn;
+  border: none;
+  width: 150px;
+  padding: 15px 20px;
+  font-size: 0.8em;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
   
-  tbody td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd; 
-    font-size: 0.8em;
-    word-wrap: break-word;
-  }
-  
-  /* Länk-styling */
-  a {
-    color: #607e87;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Knapp-styling för "Lägg till"-knappen */
-  button {
-    padding: 8px 12px;
-    width: 80px;
-    background-color: base.$add-btn;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
+  &:hover {
     background-color: #005f99;
   }
-  
-  span {
-    color: green;
-    font-weight: bold;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 915px) and (max-width: 1000px) {
+  #table-container {
+    width: 100%;
+    max-width: 100%;
   }
 
-  /* Gömmer scroll-meddelande som standard */
-  .scroll-info {
-  display: none;
+  table {
+    table-layout: auto;
+    font-size: 1em;
   }
 
-  /* knapp för rensa-filter */
-  .clear-filters-btn {
-    background-color: base.$add-btn;
-    border: none;
-    width: 150px;
-    padding: 15px 20px;
+  thead th {
+    padding: 6px;
+  }
+
+  tbody td {
+    padding: 8px;
     font-size: 0.8em;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    margin: 0 auto;
-  
-    &:hover {
-      background-color: #005f99;
-    }
-  }
-
-  /* MEDIA QUERIES */
-
-/* Tablet */
-@media (min-width: 650px) and (max-width: 900px) {
-  #table-container {
-      width: 100%;
-      max-width: 100%;
-  }
-
-  table {
-      font-size: 1em;
-  }
-
-  thead th {
-      padding: 6px;
-  }
-
-  tbody td {
-      padding: 8px;
   }
 
   .searchcontainer {
-      width: 80%;
-      font-size: 0.9em;
+    width: 80%;
+    font-size: 0.9em;
   }
 }
 
-/* Mobile */
-@media (max-width: 649px) {
-  #table-container {
-      width: 100%;
-      max-width: 100%;
-  }
-
-  table {
-      font-size: 0.9em;
-  }
-
-  thead th {
-      padding: 3px;
-  }
-
-  tbody td {
-      padding: 3px;
-      font-size: 0.9em;
-  }
-
-  .searchcontainer {
-      width: 100%;
-      font-size: 0.9em;
-  }
-
-  .pagination-controls {
-      font-size: 0.9em; 
-  }
-
-  button {
-    padding: 8px 8px;
-    width: 60px;
-  }
-
-  .clear-filters-btn {
-    padding: 12px 17px;
-  }
-}
-
-/* Specifik media query för skärmar under 500 px */
-@media (max-width: 499px) {
+/* Skrollbar tabell vid 915px eller mindre för bättre och mindre ihoptryckt layout */
+@media (max-width: 915px) {
   #table-container {
     width: 100%; 
-    max-width: 100%;
     overflow-x: auto; /* Tillåter horisontell scrollning */
   }
 
   table {
-    width: 500px; /* Sätter en fast bredd på tabellen för att kunna scrolla */
+    width: 850px; /* Sätter en fast bredd på tabellen för att kunna scrolla */
   }
 
   thead th,
   tbody td {
     padding: 10px;
+    font-size: 0.7em;
+  }
+
+  thead th {
     font-size: 0.9em;
+  }
+
+  tbody td {
+    font-size: 0.8em;
   }
 
   .pagination-controls {
     font-size: 0.8em;
   }
 
-  /* Visar scroll-meddelande vid 499px eller mindre */
   .scroll-info {
     display: block;
     font-size: 0.8em;
