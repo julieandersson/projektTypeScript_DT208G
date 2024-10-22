@@ -13,15 +13,17 @@ section {
     border-radius: 4px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    color: #000;
 }
 
 #apply:hover {
     transform: scale(1.1);
 }
 
-a {
-    color: #000;
-}
+
+#apply a {
+    color: #000 !important; 
+  }
 
 h3 {
     font-size: 1.4em;

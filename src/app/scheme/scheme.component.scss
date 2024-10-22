@@ -1,9 +1,9 @@
 @use '../../styles/base';
 
 section {
-    margin-bottom: 20px;
-    margin-top: 20px;
-    text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
 }
 
 /* Styling för texten ovanför ramschemat */
@@ -26,26 +26,31 @@ section {
 
 /* Styling för tabellen */
 #scheme-table-container {
-    margin-top: 20px;
-    background-color: base.$standard-white;
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto 40px auto;
-    border: 1px solid #5c5c5c;
+  margin-top: 20px;
+  background-color: base.$standard-white;
+  width: 95%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid #5c5c5c;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
 }
 
 /* Styling för rubriker */
 thead th {
-    background-color: base.$base-color;
-    padding: 8px;
-    text-align: left;
-    white-space: nowrap;
+  background-color: base.$base-color;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+thead th:nth-child(2), 
+tbody td:nth-child(2) {
+  width: 25%;
 }
 
 thead th:nth-child(4), 
@@ -54,36 +59,46 @@ tbody td:nth-child(4) {
   width: 20%;
 }
 
+thead th:last-child,
+tbody td:last-child {
+  width: 15%; 
+  text-align: center; 
+  padding-right: 0;
+}
+
+
 /* Styling för tabellens celler */
 tbody td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd; 
-    font-size: 0.8em;
-    word-wrap: break-word;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ddd; 
+  font-size: 0.8em;
+  line-height: 1.2;
+  word-wrap: break-word;
 }
 
 /* kursplan-länk */
 a {
-    color: #607e87;
-    text-decoration: none;
+  color: #607e87;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Styling för ta bort-knappen */
 button {
-    padding: 8px 12px;
-    background-color: base.$error;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 8px 12px;
+  background-color: base.$error;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap; /* Förhindrar att text bryts */
 }
 
 button:hover {
-    background-color: #c9302c;
+  background-color: #c9302c;
 }
 
 /* Gömmer scroll-meddelande som standard */
@@ -93,82 +108,59 @@ button:hover {
 
 /* MEDIA QUERIES */
 
-/* Tablet */
-@media (min-width: 600px) and (max-width: 900px) {
+@media (min-width: 915px) and (max-width: 1000px) {
   #scheme-table-container {
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
-  }
-
-  table {
-      font-size: 1em;
-  }
-
-  thead th {
-      padding: 6px;
-  }
-
-  tbody td {
-      padding: 8px;
-  }
-
-  .scheme-info-text {
-      font-size: 0.9em;
-  }
-}
-
-/* Mobile */
-@media (max-width: 599px) {
-  #scheme-table-container {
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
-  }
-
-  table {
-      font-size: 0.9em;
-  }
-
-  thead th {
-      padding: 3px;
-  }
-
-  tbody td {
-      padding: 3px;
-      font-size: 0.9em;
-  }
-
-  .scheme-info-text {
-      font-size: 0.9em;
-  }
-
-  button {
-    padding: 8px 8px;
-    width: 60px;
-  }
-}
-
-/* Specifik media query för skärmar under 500 px */
-@media (max-width: 499px) {
-  #scheme-table-container {
-    width: 100%; 
+    width: 100%;
     max-width: 100%;
-    margin: 0 auto;
+  }
+
+  table {
+    table-layout: auto;
+    font-size: 1em;
+  }
+
+  thead th {
+    padding: 6px;
+  }
+
+  tbody td {
+    padding: 8px;
+    font-size: 0.8em;
+  }
+
+  .scheme-info-text {
+    font-size: 0.9em;
+  }
+}
+
+/* Skrollbar tabell vid 915px eller mindre för bättre och mindre ihoptryckt layout */
+@media (max-width: 915px) {
+  #scheme-table-container {
+    width: 100%;
     overflow-x: auto; /* Tillåter horisontell scrollning */
   }
 
   table {
-    width: 500px; /* Sätter en fast bredd på tabellen för att kunna scrolla */
+    width: 850px; /* Sätter en fast bredd på tabellen för att kunna scrolla */
   }
 
   thead th,
   tbody td {
     padding: 10px;
+  }
+
+  thead th {
     font-size: 0.9em;
   }
 
-  /* Visar scroll-meddelande vid 499px eller mindre */
+  tbody td {
+    font-size: 0.7em;
+  }
+
+  .scheme-info-text {
+    font-size: 0.9em;
+  }
+
   .scroll-info {
     display: block;
     font-size: 0.8em;
@@ -177,3 +169,4 @@ button:hover {
     margin-top: 10px;
   }
 }
+
