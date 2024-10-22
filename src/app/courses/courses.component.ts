@@ -31,7 +31,7 @@ export class CoursesComponent {
 
   // Variabler för paginering
   currentPage: number = 1; // Nuvarande sida
-  itemsPerPage: number = 30; // Antal kurser per sida
+  itemsPerPage: number = 20; // Antal kurser per sida
   totalItems: number = 0; // Totalt antal kurser
 
   // konstruktor för import av kurser
