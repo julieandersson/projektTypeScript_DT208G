@@ -46,3 +46,55 @@ a:hover {
     text-decoration: underline;
 }
 
+/* MEDIA QUERIES */
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 900px) {
+    section {
+        width: 100%;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+    
+    h4 {
+        font-size: 1.1em;
+    }
+
+    #apply {
+        padding: 12px 15px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 599px) {
+    section {
+        width: 95%; 
+        text-align: center;
+    
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    h4 {
+        font-size: 1.1em;
+    }
+
+    li {
+        font-size: 1.1em; 
+        margin-bottom: 8px;
+    }
+
+    #apply {
+        padding: 10px 12px; 
+        font-size: 0.9em;
+    }
+}
+

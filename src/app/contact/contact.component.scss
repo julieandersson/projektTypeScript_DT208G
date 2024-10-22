@@ -8,6 +8,11 @@ section {
 h3 {
     font-size: 1.4em;
 }
+
+h4 {
+  font-size: 1.2em;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -32,7 +37,7 @@ a:hover {
 .background-image {
     position: relative;
     width: 100%;
-    height: 600px;
+    height: 550px;
   }
   
   .background-image img {
@@ -53,4 +58,75 @@ a:hover {
     padding: 20px;
     border-radius: 8px;
   }
+
+  /* MEDIA QUERIES */
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 900px) {
+  section {
+      width: 100%;
+  }
+
+  li {
+      margin-bottom: 10px;
+  }
+
+  h3 {
+      font-size: 1.2em;
+  }
+  
+  h4 {
+      font-size: 1.1em;
+  }
+
+  .background-image {
+    height: 400px;
+  }
+
+  .background-image img {
+    width: 95%;
+  }
+
+  .text-overlay {
+    padding: 15px;
+    font-size: 0.9em;
+  }
+
+}
+
+/* Mobile */
+@media (max-width: 599px) {
+  section {
+      width: 95%; 
+      text-align: center;
+  
+  }
+
+  h3 {
+      font-size: 1.3em;
+  }
+
+  h4 {
+      font-size: 1.1em;
+  }
+
+  li {
+      font-size: 1.1em; 
+      margin-bottom: 8px;
+  }
+
+  .background-image {
+    height: 300px;
+  }
+
+  .background-image img {
+    width: 100%;
+  }
+
+.text-overlay {
+    padding: 10px;
+    font-size: 0.9em;
+    width: 80%;
+  }
+}
   
