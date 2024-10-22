@@ -9,6 +9,7 @@
 <!-- Visar totalt antal poäng -->
 <p class="scheme-info-text" *ngIf="schemeCourses.length > 0">Totala poäng: {{ totalPoints }} hp</p>
 
+<p class="scroll-info">Scrolla tabellen sidleds för att kunna se all information.</p>
 <!-- Tabell för att visa tillagda kurser i ramschemat -->
 <div id="scheme-table-container">
 <table *ngIf="schemeCourses.length > 0">
@@ -17,6 +18,7 @@
       <th>Kurskod</th>
       <th>Kursnamn</th>
       <th>Poäng</th>
+      <th>Ämne</th>
       <th>Kursplan</th>
       <th>Ta bort</th>
     </tr>
@@ -26,6 +28,7 @@
       <td>{{ course.courseCode }}</td>
       <td>{{ course.courseName }}</td>
       <td>{{ course.points }} hp</td>
+      <td>{{ course.subject }}</td>
       <td><a [href]="course.syllabus" target="_blank">Kursplan</a></td>
       <td>
         <!-- Knapp för att ta bort kurs från ramschemat -->

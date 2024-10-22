@@ -36,6 +36,7 @@ section {
 table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 /* Styling för rubriker */
@@ -43,6 +44,7 @@ thead th {
     background-color: base.$base-color;
     padding: 8px;
     text-align: left;
+    white-space: nowrap;
 }
 
 /* Styling för tabellens celler */
@@ -50,6 +52,7 @@ tbody td {
     padding: 10px;
     border-bottom: 1px solid #ddd; 
     font-size: 0.8em;
+    word-wrap: break-word;
 }
 
 /* kursplan-länk */
@@ -74,4 +77,96 @@ button {
 
 button:hover {
     background-color: #c9302c;
+}
+
+/* Gömmer scroll-meddelande som standard */
+.scroll-info {
+  display: none;
+}
+
+/* MEDIA QUERIES */
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 900px) {
+  #scheme-table-container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+  }
+
+  table {
+      font-size: 1em;
+  }
+
+  thead th {
+      padding: 6px;
+  }
+
+  tbody td {
+      padding: 8px;
+  }
+
+  .scheme-info-text {
+      font-size: 0.9em;
+  }
+}
+
+/* Mobile */
+@media (max-width: 599px) {
+  #scheme-table-container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+  }
+
+  table {
+      font-size: 0.9em;
+  }
+
+  thead th {
+      padding: 3px;
+  }
+
+  tbody td {
+      padding: 3px;
+      font-size: 0.9em;
+  }
+
+  .scheme-info-text {
+      font-size: 0.9em;
+  }
+
+  button {
+    padding: 8px 8px;
+    width: 60px;
+  }
+}
+
+/* Specifik media query för skärmar under 500 px */
+@media (max-width: 499px) {
+  #scheme-table-container {
+    width: 100%; 
+    max-width: 100%;
+    margin: 0 auto;
+    overflow-x: auto; /* Tillåter horisontell scrollning */
+  }
+
+  table {
+    width: 500px; /* Sätter en fast bredd på tabellen för att kunna scrolla */
+  }
+
+  thead th,
+  tbody td {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  /* Visar scroll-meddelande vid 499px eller mindre */
+  .scroll-info {
+    display: block;
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+  }
 }
