@@ -1,6 +1,6 @@
 # Moment 5 PROJEKT - DT208G - Programmering i TypeScript
 ## Projektwebbplats
-Denna uppgift ingår i moment 5 i kursen DT208G och innefattar en projektwebbplats. Webbplatsen är skapat för ett fiktivt universitet som heter Stjärnklara Universitet. På webbplatsen kan besökare läsa ut en lista med tillgängliga kurser samt skapa ett eget ramschema av en uppsättning kurser. 
+Denna uppgift ingår i moment 5 i kursen DT208G och innefattar en projektwebbplats. Webbplatsen är skapad för ett fiktivt universitet som heter "Stjärnklara Universitet". På webbplatsen kan besökare läsa ut en lista med tillgängliga kurser samt skapa ett eget ramschema av en uppsättning kurser. 
 
 Utöver detta finns totalt 7 andra undersidor på webbplatsen med information om universitetet. 
 
@@ -22,6 +22,7 @@ Användaren kan...
 - Filtrera kurser baserat på valt ämne
 - Sortera kurskod, kursnamn, poäng och ämne genom att klicka på rubriken i tabellen. 
 - Skapa ett eget ramschema genom att klicka på "Lägg till" i listan med kurser. (alla tillagda kurser lagras i LocalStorage)
+- Ta bort kurser från sitt ramschema genom att klicka på knappen "Ta bort" i tabellen.
 - Bläddra mellan olika sidor för att se fler kurser med hjälp av paginering. På varje sida visas 30 kurser. 
 
 ## Använda tekniker
